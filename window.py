@@ -18,20 +18,20 @@ def main():
             )
         ],
         [
-            sg.Text('Source folder', size=(15, 1)),
+            sg.Text("Source folder", size=(15, 1)),
             sg.InputText(
-                key="-BASE-FOLDER-INPUT-",
+                key="-SOURCE-FOLDER-INPUT-",
                 enable_events=True,
             ),
-            sg.FolderBrowse(button_text="Select", key="-BASE-FOLDER-BROWSE-"),
+            sg.FolderBrowse(button_text="Select", key="-SOURCE-FOLDER-BROWSE-"),
         ],
         [
-            sg.Text('Target folder', size=(15, 1)),
+            sg.Text("Target folder", size=(15, 1)),
             sg.InputText(
-                key="-CONVERTED-FOLDER-INPUT-",
+                key="-TARGET-FOLDER-INPUT-",
                 enable_events=True,
             ),
-            sg.FolderBrowse(button_text="Select", key="-CONVERTED-FOLDER-BROWSE-"),
+            sg.FolderBrowse(button_text="Select", key="-TARGET-FOLDER-BROWSE-"),
         ],
         [sg.Submit()],
     ]
@@ -43,7 +43,7 @@ def main():
             break
         if event == "Submit":
             copy_and_convert_all_excel(
-                values["-BASE-FOLDER-INPUT-"], values["-CONVERTED-FOLDER-INPUT-"]
+                values["-SOURCE-FOLDER-INPUT-"], values["-TARGET-FOLDER-INPUT-"]
             )
             sg.popup("Conversion finished.")
 
