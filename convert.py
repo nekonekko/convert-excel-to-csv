@@ -14,6 +14,9 @@ def copy_and_convert_all_excel(base_path, converted_path):
     Args:
         base_path (str): Path of the folder to be converted
         converted_path (str): Path of the folder after conversion
+        
+    Return:
+        (boolean): Whether the conversion was completed to the end or not.
     """
 
     excel_path_list = []
