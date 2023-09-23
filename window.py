@@ -42,10 +42,13 @@ def main():
         if event == sg.WIN_CLOSED:
             break
         if event == "Submit":
-            copy_and_convert_all_excel(
+            is_completed = copy_and_convert_all_excel(
                 values["-SOURCE-FOLDER-INPUT-"], values["-TARGET-FOLDER-INPUT-"]
             )
-            sg.popup("Conversion finished.")
+            if is_completed:
+                sg.popup("Conversion finished.")
+            else:
+                sg.popup("Could not complete successfully!")
 
     window.close()
 
