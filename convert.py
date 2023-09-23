@@ -47,7 +47,7 @@ def copy_and_convert_all_excel(base_path, converted_path):
             try:
                 excel_file = pd.read_excel(os.path.join(base_path, excel_path))
             except:
-                sg.popup(f"Could not open {excel_path}")  # e.g. temporary file
+                sg.popup(f"{excel_path}を開けませんでした！")  # e.g. temporary file
                 continue
 
             window["-CURRENT-FILE-NAME-"].update(excel_path)

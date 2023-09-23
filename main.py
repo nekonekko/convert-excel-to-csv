@@ -9,29 +9,29 @@ def main():
     layout = [
         [
             sg.Text(
-                "Converts all xlsx and xls files under the selected conversion source folder to csv."
+                "選択した変換元フォルダの下にあるすべてのxlsx/xlsファイルをcsvに変換します。"
             )
         ],
         [
             sg.Text(
-                "The converted csv file will be placed under the target folder, keeping the folder structure."
+                "変換されたcsvファイルは、フォルダ構造を維持したまま、変換後フォルダの下に配置されます。"
             )
         ],
         [
-            sg.Text("Source folder", size=(15, 1)),
+            sg.Text("変換元フォルダ", size=(15, 1)),
             sg.InputText(
                 key="-SOURCE-FOLDER-INPUT-",
                 enable_events=True,
             ),
-            sg.FolderBrowse(button_text="Select", key="-SOURCE-FOLDER-BROWSE-"),
+            sg.FolderBrowse(button_text="選択", key="-SOURCE-FOLDER-BROWSE-"),
         ],
         [
-            sg.Text("Target folder", size=(15, 1)),
+            sg.Text("変換後フォルダ", size=(15, 1)),
             sg.InputText(
                 key="-TARGET-FOLDER-INPUT-",
                 enable_events=True,
             ),
-            sg.FolderBrowse(button_text="Select", key="-TARGET-FOLDER-BROWSE-"),
+            sg.FolderBrowse(button_text="選択", key="-TARGET-FOLDER-BROWSE-"),
         ],
         [sg.Push(), sg.Submit(), sg.Push()],
     ]
@@ -46,10 +46,9 @@ def main():
                 values["-SOURCE-FOLDER-INPUT-"], values["-TARGET-FOLDER-INPUT-"]
             )
             if is_completed:
-                sg.popup("Conversion finished.")
+                sg.popup("変換が完了しました！")
             else:
-                sg.popup("Could not complete successfully!")
-
+                sg.popup("変換を完了できませんでした！")
     window.close()
 
 
