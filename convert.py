@@ -21,7 +21,16 @@ def copy_and_convert_all_excel(base_path, converted_path):
         if re.search("\.(xls|xlsx)$", file_path):
             excel_path_list.append(file_path)
 
-    for excel_path in excel_path_list:
+    layout = [
+        [
+            sg.ProgressBar(
+                len(excel_path_list), orientation="h", size=(30, 10), key="-PROG-"
+            )
+        ],
+    ]
+    window = sg.Window("Progress", layout, finalize=True)
+
+    for i, excel_path in enumerate(excel_path_list):
         dirname = os.path.dirname(excel_path)
         filename_without_ext = os.path.splitext(os.path.basename(excel_path))[0]
 
@@ -36,3 +45,7 @@ def copy_and_convert_all_excel(base_path, converted_path):
             index=None,
             header=False,
         )
+
+        window["-PROG-"].update(i + 1)
+
+    window.close()
