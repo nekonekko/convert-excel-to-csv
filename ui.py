@@ -1,5 +1,7 @@
 import PySimpleGUI as sg
 
+from convert import copy_and_convert_all_excel
+
 sg.theme("DarkAmber")
 
 layout = [
@@ -34,6 +36,8 @@ while True:
         break
     if event == "Submit":
         # csvへの変換を行う
-        continue
+        copy_and_convert_all_excel(
+            values["-BASE-FOLDER-INPUT-"], values["-CONVERTED-FOLDER-INPUT-"]
+        )
 
 window.close()
