@@ -39,5 +39,6 @@ while True:
         copy_and_convert_all_excel(
             values["-BASE-FOLDER-INPUT-"], values["-CONVERTED-FOLDER-INPUT-"]
         )
+        sg.popup("Conversion finished.")
 
 window.close()
