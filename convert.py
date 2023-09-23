@@ -27,6 +27,7 @@ def copy_and_convert_all_excel(base_path, converted_path):
                 len(excel_path_list), orientation="h", size=(30, 10), key="-PROG-"
             )
         ],
+        [sg.Text(key="-CURRENT-FILE-NAME-")]
     ]
     window = sg.Window("Progress", layout, finalize=True)
 
@@ -40,6 +41,7 @@ def copy_and_convert_all_excel(base_path, converted_path):
             sg.popup(f"Could not open {excel_path}")  # e.g. temporary file
             continue
 
+        window["-CURRENT-FILE-NAME-"].update(excel_path)
         os.makedirs(os.path.join(converted_path, dirname), exist_ok=True)
         excel_file.to_csv(
             os.path.join(converted_path, dirname, filename_without_ext + ".csv"),
