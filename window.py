@@ -33,7 +33,7 @@ def main():
             ),
             sg.FolderBrowse(button_text="Select", key="-TARGET-FOLDER-BROWSE-"),
         ],
-        [sg.Submit()],
+        [sg.Push(), sg.Submit(), sg.Push()],
     ]
 
     window = sg.Window("ExcelToCSV", layout)
