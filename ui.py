@@ -4,7 +4,7 @@ from convert import copy_and_convert_all_excel
 
 
 def main():
-    sg.theme("DarkAmber")
+    sg.theme("BlueMono")
 
     layout = [
         [
