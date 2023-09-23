@@ -14,20 +14,20 @@ def main():
         ],
         [
             sg.Text(
-                "The converted csv file will be placed under the converted folder, keeping the folder structure."
+                "The converted csv file will be placed under the target folder, keeping the folder structure."
             )
         ],
         [
+            sg.Text('Source folder', size=(15, 1)),
             sg.InputText(
-                "Select source folder",
                 key="-BASE-FOLDER-INPUT-",
                 enable_events=True,
             ),
             sg.FolderBrowse(button_text="Select", key="-BASE-FOLDER-BROWSE-"),
         ],
         [
+            sg.Text('Target folder', size=(15, 1)),
             sg.InputText(
-                "Select a folder after conversion",
                 key="-CONVERTED-FOLDER-INPUT-",
                 enable_events=True,
             ),
