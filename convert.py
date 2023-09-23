@@ -14,7 +14,7 @@ def copy_and_convert_all_excel(base_path, converted_path):
     Args:
         base_path (str): Path of the folder to be converted
         converted_path (str): Path of the folder after conversion
-        
+
     Return:
         (boolean): Whether the conversion was completed to the end or not.
     """
@@ -30,17 +30,17 @@ def copy_and_convert_all_excel(base_path, converted_path):
                 len(excel_path_list), orientation="h", size=(30, 10), key="-PROG-"
             )
         ],
-        [sg.Text(key="-CURRENT-FILE-NAME-")]
+        [sg.Text(key="-CURRENT-FILE-NAME-")],
     ]
     window = sg.Window("Progress", layout)
 
     for i, excel_path in enumerate(excel_path_list):
         event, _ = window.read(timeout=10, timeout_key="-READ-NEXT-FILE-")
-        
+
         if event == sg.WIN_CLOSED:
             window.close()
             return False
-        elif event == "-READ-NEXT-FILE-":       
+        elif event == "-READ-NEXT-FILE-":
             dirname = os.path.dirname(excel_path)
             filename_without_ext = os.path.splitext(os.path.basename(excel_path))[0]
 
@@ -61,5 +61,5 @@ def copy_and_convert_all_excel(base_path, converted_path):
             window["-PROG-"].update(i + 1)
 
     window.close()
-    
+
     return True
