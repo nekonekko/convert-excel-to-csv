@@ -13,7 +13,7 @@ layout = [
             key="-BASE-FOLDER-INPUT-",
             enable_events=True,
         ),
-        sg.FolderBrowse(button_text="選択", font=("メイリオ"), key="-BASE-FOLDER=BROWSE-"),
+        sg.FolderBrowse(button_text="選択", font=("メイリオ"), key="-BASE-FOLDER-BROWSE-"),
     ],
     [
         sg.InputText(
@@ -22,7 +22,7 @@ layout = [
             enable_events=True,
         ),
         sg.FolderBrowse(
-            button_text="選択", font=("メイリオ"), key="-CONVERTED-FOLDER=BROWSE-"
+            button_text="選択", font=("メイリオ"), key="-CONVERTED-FOLDER-BROWSE-"
         ),
     ],
     [sg.Submit()],
