@@ -34,12 +34,13 @@ def copy_and_convert_all_excel(base_path, converted_path):
         dirname = os.path.dirname(excel_path)
         filename_without_ext = os.path.splitext(os.path.basename(excel_path))[0]
 
-        if filename_without_ext.startswith("~$"):  # temporary file
-            sg.popup(f"Could not open {excel_path}")
+        try:
+            excel_file = pd.read_excel(os.path.join(base_path, excel_path))
+        except:
+            sg.popup(f"Could not open {excel_path}")  # e.g. temporary file
             continue
 
         os.makedirs(os.path.join(converted_path, dirname), exist_ok=True)
-        excel_file = pd.read_excel(os.path.join(base_path, excel_path))
         excel_file.to_csv(
             os.path.join(converted_path, dirname, filename_without_ext + ".csv"),
             index=None,
