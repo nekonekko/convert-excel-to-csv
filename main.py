@@ -25,7 +25,7 @@ def main():
             ),
             sg.FolderBrowse(button_text="選択", key="-TARGET-FOLDER-BROWSE-"),
         ],
-        [sg.Push(), sg.Submit(), sg.Push()],
+        [sg.Push(), sg.Submit("決定"), sg.Push()],
     ]
 
     window = sg.Window("ExcelToCSV", layout)
